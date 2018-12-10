@@ -139,7 +139,7 @@ class ManuallyInputScreen:
 			numbers_input = [int(x) for x in self.manual_entry.get().split(' ')]
 
 			if len(numbers_input) == AMOUNT_OF_NUMBER_ITEMS:
-				if numbers_input == WINNING_NUMBERS:
+				if sorted(numbers_input) == WINNING_NUMBERS:
 					self.win_lbl = tkinter.Label(self.middle_frame, text='\n...YOU WIN!...\n')
 					self.win_lbl.pack(side='top')
 					self.manual_prompt.destroy()
@@ -210,7 +210,7 @@ class RandomScreen:
 
 	def check_random(self):
 		self.check_lbl.destroy()
-		if RANDOMLY_GENERATED_NUMBERS == WINNING_NUMBERS:
+		if sorted(RANDOMLY_GENERATED_NUMBERS) == WINNING_NUMBERS:
 			self.win_lbl = tkinter.Label(self.top_frame, text='\n...YOU WIN!...\n')
 			self.win_lbl.pack(side='top')
 		else:
