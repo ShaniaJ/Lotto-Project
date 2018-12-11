@@ -142,6 +142,7 @@ class ManuallyInputScreen:
 				if sorted(numbers_input) == WINNING_NUMBERS:
 					self.win_lbl = tkinter.Label(self.middle_frame, text='\n...YOU WIN!...\n')
 					self.win_lbl.pack(side='top')
+					self.top_frame.destroy()
 					self.manual_prompt.destroy()
 					self.manual_entry.destroy()
 					self.manual_submit_bttn.destroy()
@@ -212,6 +213,7 @@ class RandomScreen:
 		self.check_lbl.destroy()
 		if sorted(RANDOMLY_GENERATED_NUMBERS) == WINNING_NUMBERS:
 			self.win_lbl = tkinter.Label(self.top_frame, text='\n...YOU WIN!...\n')
+			self.middle_frame.destroy()
 			self.win_lbl.pack(side='top')
 		else:
 			answer = tkinter.messagebox.askyesno("You Lost", "\tSorry, You Lose\n\nWould you like to try again? ")
